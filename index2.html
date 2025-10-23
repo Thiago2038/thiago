@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0aaa4d;
+            color: #145592;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        .cabecalho {
+            background-color: #0eaf44;
+            color:blacks;
+            padding: 1em 0;
+            position: sticky; /* Fixa o cabeçalho no topo */
+            top: 0;
+            z-index: 100;
+        }
+
+        .cabecalho .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 25px;
+        }
+
+        .menu a {
+            color: #450e79;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #58a6ff;
+        }
+
+        /* Banner */
+        .banner {
+            background-color: #2b7386;
+            padding: 100px 0;
+            text-align: center;
+            color: #24292e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner .container {
+            max-width: 800px;
+        }
+
+        .banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+            color: #586069;
+        }
+
+        /* Sobre */
+        .sobre {
+            padding: 80px 0;
+            background-color: #570a0a;
+        }
+
+        .grid-sobre {
+            display: grid;
+            gap: 30px;
+        }
+
+        .sobre h2 {
+            font-size: 2.2em;
+            color: #24292e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sobre p {
+            font-size: 1.1em;
+            color: #586069;
+        }
+
+        /* Serviços */
+        .servicos {
+            background-color: #051d31;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .servicos h2 {
+            font-size: 2.2em;
+            color: #24292e;
+            margin-bottom: 30px;
+        }
+
+        .grade-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #24292e;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #586069;
+        }
+
+        /* Contato */
+        .contato {
+            padding: 80px 0;
+            background-color: #d61313;
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-size: 2.2em;
+            color: #24292e;
+            margin-bottom: 30px;
+        }
+
+        .contato form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contato input[type="text"],
+        .contato input[type="email"],
+        .contato textarea {
+            padding: 15px;
+            border: 1px solid #088d5a;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .contato textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contato button {
+            background-color: #28a745;
+            color: #520707;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contato button:hover {
+            background-color: #22863a;
+        }
+
+        /* Rodapé */
+        .rodape {
+            background-color: #24292e;
+            color: #20198bf3;
+            text-align: center;
+            padding: 1.5em 0;
+            font-size: 0.9em;
+        }
+
+        /* Layout Responsivo */
+        @media (min-width: 768px) {
+            .grid-sobre {
+                grid-template-columns: 1fr 1fr; /* Layout de duas colunas em telas maiores */
+                align-items: center;
+            }
+
+            .grid-sobre > div:first-child {
+                order: 2; /* Inverte a ordem para colocar a imagem (se houver) à esquerda */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .banner h2 {
+                font-size: 2em;
+            }
+
+            .banner p {
+                font-size: 1em;
+            }
+
+            .grade-servicos {
+                grid-template-columns: 1fr; /* Uma coluna em telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container">
+            <h1 class="logo">Exemplo</h1>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="banner">
+        <div class="container">
+            <h2>Thiago cassemiro de oliveira - Desenvolvedor</h2>
+            <p>Desenvolvendo Jogos</p>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container grid-sobre">
+            <h2>Thiago Cassemiro de oliveira</h2>
+            <p>Exemplo de Seção Sobre</p>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="grade-servicos">
+                <div class="card">
+                    <h3>Programação</h3>
+                    <p>Realizo a programação de protótipos</p>
+                </div>
+
+                <div class="card">
+                    <h3>Design</h3>
+                    <p>Realizo o design de jogos de tabuleiro e jogos digitais</p>
+                </div>
+
+                <div class="card">
+                    <h3>Testes</h3>
+                    <p>Faço testes de qualidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2>Fale comigo</h2>
+            <form>
+                <input type="text" placeholder="Seu nome">
+                <input type="email" placeholder="Seu E-mail">
+                <textarea placeholder="Escreva sua dúvida"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2025 Thiago Cassemiro de Oliveira | Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

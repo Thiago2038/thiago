@@ -1,0 +1,23 @@
+@media(max-width:900px) {
+    .grid-servicos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 768px){
+    .menu ul {
+        flex-direction:column;
+        align-items: center;
+    }
+
+    .grid-sobre {
+        grid-template-columns: 1fr;
+    }
+    .grid-servicos {
+        grid-template-columns: 1fr;
+    }
+    .banner h2 {
+        font-size: 28px;
+    }
+}
+

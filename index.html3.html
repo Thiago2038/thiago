@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Objetos</title>
+</head>
+<body>
+    <button id="button">Clique Aqui!</button>
+
+    <script>
+        const button = document.getElementById("button");
+
+        button.addEventListener("click",function(){
+            alert("Cassemiro");
+        })
+    </script>
+
+    <div id="mensagem">Texto</div>
+    <button onclick="AlterarTexto()">Alterar Texto</button>
+
+    <script>
+    function AlterarTexto() {
+        let div = document.getElementById("mensagem");
+        div.innerText ="Texto Alterado";
+        div.style.color = "green";
+    }
+    </script>
+
+
+    <input type="text" id="nome"placeholder="Digite seu nome">
+    <button onclick="validar()">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function validar() {
+            let nome = document.getElementById("nome").value;
+
+            if(nome.length < 3) {
+                document.getElementById("resultado").innerText ="Nome muito curto";
+            } else {
+                document.getElementById("resultado").innerText ="Nome válido";
+            }
+        }
+    </script>
+    <button onclick="mudarCor()">Mudar Cor</button>
+
+    <script>
+        function mudarCor() {
+            document.body.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        }
+    </script>
+
+    <p>Contador: <span id="Contador">0</span></p>
+    <button onclick="incrementar()">+1</button>
+    <button onclick="resetar()">Resetar</button>
+    <script>
+    let cont = 0;
+
+    function incrementar() {
+        cont++;
+        document.getElementById("Contador").innerText = cont;
+    }
+    function resetar() {
+        cont = 0;
+        document.getElementById("Contador").innerText = cont;
+    }
+
+    </script>
+
+</body>
+</html>
